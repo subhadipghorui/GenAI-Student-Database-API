@@ -1,0 +1,42 @@
+### Query - Test
+POST http://localhost:8080/api/genai/chat
+Content-Type: application/json
+
+{
+  "prompt": "What is capital of France?"
+}
+
+
+### Query - Get student with highest marks in Math
+POST http://localhost:8080/api/genai/query
+Content-Type: application/json
+
+{
+  "prompt": "Get student with highest marks in Math"
+}
+
+
+### Query - Get John Profile info
+POST http://localhost:8080/api/genai/query
+Content-Type: application/json
+
+{
+  "prompt": "Get John Profile info"
+}
+
+
+### Query - Get all Student count for each class
+POST http://localhost:8080/api/genai/query
+Content-Type: application/json
+
+{
+  "prompt": "Get all Student count for each class"
+}
+
+### Query - Get student with highest marks in Math
+POST http://localhost:8080/api/genai/query
+Content-Type: application/json
+
+{
+  "prompt": "Get Top 3 Student Profile who got highest marks in geography."
+}
