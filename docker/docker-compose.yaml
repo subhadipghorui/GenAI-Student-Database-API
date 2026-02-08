@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres16_data:/var/lib/postgresql/data
+    networks:
+      - custom_bridge
+    restart: unless-stopped
+
+volumes:
+  postgres16_data:
+    driver: local
+
+networks:
+  custom_bridge:
+    driver: bridge

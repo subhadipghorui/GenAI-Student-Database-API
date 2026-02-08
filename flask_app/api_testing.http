@@ -1,0 +1,67 @@
+### Health Check
+GET http://localhost:5000/health
+
+###
+
+### Query - Get all students in class Five
+POST http://localhost:5000/query
+Content-Type: application/json
+
+{
+  "prompt": "Get all students in class Five"
+}
+
+###
+
+### Query - Get student with highest marks in Math
+POST http://localhost:5000/query
+Content-Type: application/json
+
+{
+  "prompt": "Get student with highest marks in Math"
+}
+
+###
+
+### Query - Show all students in class Six
+POST http://localhost:5000/query
+Content-Type: application/json
+
+{
+  "prompt": "Show all students in class Six"
+}
+
+### Query - Show all students count in all classes
+POST http://localhost:5000/query
+Content-Type: application/json
+
+{
+  "prompt": "Show all students count in all classes"
+}
+
+### Query - Profile Information of Student name John and get his study subject and its marksPOST http://localhost:5000/query
+Content-Type: application/json
+
+{
+  "prompt": "Profile Information of Student name John and get his study subject and its marks"
+}
+
+
+### Query - Fetch Student Profile in class Five who got highest marks in Geography subject
+POST http://localhost:5000/query
+Content-Type: application/json
+
+{
+  "prompt": "Fetch Student Profile in class Five who got highest marks in Geography subject"
+}
+###
+
+### Update - Update student marks
+POST http://localhost:5000/update
+Content-Type: application/json
+
+{
+  "prompt": "Update John's marks in Math to 55"
+}
+
+###
