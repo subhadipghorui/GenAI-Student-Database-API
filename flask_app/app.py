@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from sqlalchemy import create_engine, text
 import os
 from openai import OpenAI
@@ -6,6 +7,7 @@ import json
 
 app = Flask(__name__)
 
+CORS(app)  # Enable CORS for all routes
 # Database configuration
 DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://postgres:postgres@localhost:5432/mydb')
 engine = create_engine(DATABASE_URL)
@@ -41,7 +43,9 @@ CUSTOM_INSTRUCTIONS = f"""
     Exceptions:
     - When querying subjects: Subject names in the database include the class name as a suffix (e.g., "Math Five", "Physics Six"). If the user asks about a subject without specifying the class (e.g., "Math"), use LIKE pattern matching to find all matching subjects (e.g., WHERE name LIKE 'Math%').
 
-     - Always include related data in SELECT: When a query involves relationships (e.g., students and their marks), include relevant fields from all related tables. For example, if asking about "Student with highest marks in Math", return student columns (first_name, last_name, etc.), marks columns (marks, total_marks), and subject columns (subject name) in a single result set using JOINs.
+    - Always include related data in SELECT: When a query involves relationships (e.g., students and their marks), include relevant fields from all related tables. For example, if asking about "Student with highest marks in Math", return student columns (first_name, last_name, etc.), marks columns (marks, total_marks), and subject columns (subject name) in a single result set using JOINs.
+
+    - Incase of gender for male use 'M' and for female use 'F' in the query.
 
     """
 @app.route('/query', methods=['POST'])
